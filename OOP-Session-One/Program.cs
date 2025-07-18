@@ -104,11 +104,21 @@ namespace OOP_Session_One
             #endregion
             #region Class
             // Class: References[Heap]
-            // NOTE: if i  create any type of Constructor then Delete Default Constructo
+            // NOTE: if i  create any type of Constructor then Delete Default Constructor
             Car c01 = new Car(1, "BMW", -2000);
-            Console.WriteLine(c01); 
+            Console.WriteLine(c01);
             #endregion
-
+            #region Struct VS Class
+            // Struct VS Class:
+            // 1. Struct : ValueType[Stack]
+            //    Class  : ReferenceType[Heap]
+            // 2. Struct : Not Accept Inheretance
+            //    Class  : Accept Inheretance
+            // 3. Struct : Not Delete Default Constructor
+            //           : if i make Parameterless Constructor
+            //    Class  : Delete Default Constructor
+            //           : if i make Any Type Of Constructor 
+            #endregion
         }
     }
 }
