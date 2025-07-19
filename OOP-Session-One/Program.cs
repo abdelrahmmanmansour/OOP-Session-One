@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Threading.Channels;
 
 namespace OOP_Session_One
@@ -7,117 +9,113 @@ namespace OOP_Session_One
     {
         static void Main(string[] args)
         {
-            #region Struct
-            // Struct: Represent At Stack[Value Type]
-            // When I Use Struct: New DataType 
-            // When Data Have A Relationship With Each Other
-            // It is preferable to a separate file
-            // To Declare Object Or Variable From Struct:
-            Point p01; // p01 is object at stack with 8 Bytes
-            //Console.WriteLine(p01); // unassigned variable 'p01'
-            p01.X = 12;
-            p01.Y = 13;
-            Console.WriteLine($"{p01.X} {p01.Y}"); // 12 13
-            // new : Not For Create Object
-            //     : Use To Select The Constructor
-            p01 = new Point();
-            Console.WriteLine($"{p01.X} {p01.Y}"); // 0 0
-            p01 = new Point(12, 100);
-            Console.WriteLine($"{p01.X} {p01.Y}"); // 12 100
-            p01.PrintAttributes();
-            //Console.WriteLine(p01.ToString()); == Console.WriteLine(p01);
-            Console.WriteLine(p01); // Abdelrahman Mansour 
+            // Part 1:
+            #region 1. Create a struct called "Point" to represent a 2D point with properties "X" and "Y". Write a C# program that takes two points as input from the user and calculates the distance between them:
+            // Create Array of Point2D
+            //Point2D[] point2D = new Point2D[2];
+            //double x, y;
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    Console.WriteLine($"Please Enter Point {i + 1}: ");
+            //    x = double.Parse(Console.ReadLine());
+            //    y = double.Parse(Console.ReadLine());
+            //    point2D[i] = new Point2D(x, y);
+            //}
+            //Point2D p = new Point2D();
+            //Console.Write("The Distance Of Two Points is: ");
+            //Console.WriteLine(p.Distance(point2D[0], point2D[1]));
             #endregion
-            #region OOP
-            // OOP[Object Oreinted Programming]:
-            // Style Of Programming,Not Programming Language
-            // depends on Simulation Reality[Objects]
-            // Best Paradiam To Build Any Business
-            // Class: Bluprint Of The Object
-            // Object: Spesific Instance Of Class
-            // depends on 4 Fetures:
-            // 1. Encapculation: فصل تعريف الداتا عن استخدامها
-            // 2. Inheretance
-            // 3. Polymorphism
-            // 4. Abstraction 
+            #region 2. Create a struct called "Person" with properties "Name" and "Age". Write a C# program that takes details of 3 persons as input from the user and displays the name and age of the oldest person:
+            // Create Array of Person
+            //Person[] person = new Person[3];
+            //int age, max = int.MinValue;
+            //string name;
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.WriteLine($"Please Enter Person{i + 1}: ");
+            //    age = int.Parse(Console.ReadLine());
+            //    name = Console.ReadLine();
+            //    person[i] = new Person(age, name);
+            //}
+            //Person p = new Person();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    if (person[i].Age > max)
+            //    {
+            //        max = person[i].Age;
+            //        p = person[i];
+            //    }
+            //}
+            //Console.WriteLine($"Age: {p.Age} Name: {p.Name}");
             #endregion
-            #region Encapsulation[Using Setter - Getter Methods]
-            // Encapsulation[Using Setter - Getter Methods]
-            // Apply On Class Or Struct
-            // Seperate Data[Attributes] Definition From it Use
-            //Employee em = new Employee();
-            //em.id = 1;
-            //em.name = "Entsar";
-            //em.salary = 12000;
-            //Console.WriteLine($"{em.id} {em.name} {em.salary}");
-            // This is Problem:
-            // 1. EndUser Access Data itself
-            // 2. No Data Validation
-            // 3. No Read Only Field
-            // So Apply Encapsulation Solve all these:
-            // 1. Make All Attributes Private
-            // 2. Access Data Using:(Setters && Getters - Properties)
-            // Setters && Getters:
-            //em.SetID(1);
-            //em.SetName("Ahmed");
-            //em.SetSalary(12000);
-            //Console.WriteLine($"{em.GetID()} {em.GetName()} {em.GetSalary()}");
-            //Employee em01 = new Employee(2, "Mansour", 1500);
-            //Console.WriteLine(em01); // 2 Mansour 0 
-            #endregion
-            #region Encapsulation[Properties,Recommended]
-            // Encapsulation[Properties,Recommended]:
-            // 1. Full Property:
-            Employee em = new Employee();
-            em.Id = 1;
-            em.Name = "Man";
-            em.Salary = -18000;
-            Console.WriteLine(em);
-            Employee em01 = new Employee(1, "Mansour", -2000);
-            Console.WriteLine(em01);
 
-            // 2. Automatic Property:
-            em.Address = "Talka,Mansoura";
-            Console.WriteLine(em);
-
-            // Special Property[Indexer]:
-            // Name: this
-            PhoneBook phoneBook = new PhoneBook(3);
-            phoneBook.AddUser("Abdelrahman Mansour", 11111, 0);
-            phoneBook.AddUser("Mariam Mansour", 22222, 1);
-            phoneBook.AddUser("Entsar Mansour", 33333, 2);
-            Console.WriteLine(phoneBook.GetNumber("Abdelrahman Mansour"));
-            phoneBook.UpdateUser("Abdelrahman Mansour", 1000);
-            Console.WriteLine(phoneBook.GetNumber("Abdelrahman Mansour"));
-            Console.WriteLine(phoneBook.GetName(33333));
-            phoneBook.UpdateName(33333, "Mansour");
-            Console.WriteLine(phoneBook.GetName(33333));
-
-            //Indexer:
-            Console.WriteLine(phoneBook["Mariam Mansour"]); // 22222  
-            phoneBook["Mariam Mansour"] = 12000; // 
-            Console.WriteLine(phoneBook["Mariam Mansour"]); // 12000
-
-            Console.WriteLine(phoneBook[33333]);
-            phoneBook[33333] = "Moha";
-            Console.WriteLine(phoneBook[33333]);
+            // Part 2:
+            #region 1. Design and implement a Class for the employees in a company:
+            //EmplyoeeP2 emplyoeeP2 = new EmplyoeeP2(1, "Mansour", Gender.M, SecurityLevel.Guest, 12000, new DateTime(2002, 9, 21));
+            //Console.WriteLine(emplyoeeP2.ToString());
             #endregion
-            #region Class
-            // Class: References[Heap]
-            // NOTE: if i  create any type of Constructor then Delete Default Constructor
-            Car c01 = new Car(1, "BMW", -2000);
-            Console.WriteLine(c01);
+            #region 2. Develop a Class to represent the Hiring Date Data:
+            //HiringDate hiringDate = new HiringDate(2002, 9, 21);
+            //Console.WriteLine(hiringDate.ToString());
             #endregion
-            #region Struct VS Class
-            // Struct VS Class:
-            // 1. Struct : ValueType[Stack]
-            //    Class  : ReferenceType[Heap]
-            // 2. Struct : Not Accept Inheretance
-            //    Class  : Accept Inheretance
-            // 3. Struct : Not Delete Default Constructor
-            //           : if i make Parameterless Constructor
-            //    Class  : Delete Default Constructor
-            //           : if i make Any Type Of Constructor 
+            #region 3. Create an array of Employees with size three a DBA, Guest and the third one is security officer who have full permissions:
+            //EmplyoeeP2[] EmpArr = new EmplyoeeP2[3];
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    int id, year, month, day;
+            //    string name;
+            //    double salary;
+            //    Gender gender;
+            //    SecurityLevel securityLevel;
+            //    DateTime dateTime;
+            //    bool flag;
+            //    do
+            //    {
+            //        Console.Write("Please Enter AN Integer ID: ");
+            //        flag = int.TryParse(Console.ReadLine(), out id);
+            //    } while (flag == false);
+            //    do
+            //    {
+            //        Console.Write("Please Enter A Name: ");
+            //        name = Console.ReadLine();
+            //    } while (flag = name.Any(char.IsDigit)); // Avoid Numeric Names
+            //    do
+            //    {
+            //        Console.Write("Please Enter A Salary: ");
+            //        flag = double.TryParse(Console.ReadLine(), out salary);
+            //    } while (flag == false);
+            //    do
+            //    {
+            //        Console.Write("Please Enter A Gender: ");
+            //        flag = Enum.TryParse(Console.ReadLine(), true, out gender);
+            //    } while (flag == false);
+            //    do
+            //    {
+            //        Console.Write("Please Enter A SecurityLevel: ");
+            //        flag = Enum.TryParse(Console.ReadLine(), true, out securityLevel);
+            //    } while (flag == false);
+            //    Console.WriteLine("Please Enter A HiringDtae: ");
+            //    do
+            //    {
+            //        Console.Write("Plaese Enter Valid Year: ");
+            //        flag = int.TryParse(Console.ReadLine(), out year);
+            //    } while (flag == false || year <= 0 || year > DateTime.Now.Year);
+            //    do
+            //    {
+            //        Console.Write("Plaese Enter Valid Month: ");
+            //        flag = int.TryParse(Console.ReadLine(), out month);
+            //    } while (flag == false || month < 1 || month > 12);
+            //    do
+            //    {
+            //        Console.Write("Plaese Enter Valid Day: ");
+            //        flag = int.TryParse(Console.ReadLine(), out day);
+            //    } while (flag == false || day < 1 || day > 31);
+            //    EmpArr[i] = new EmplyoeeP2(id, name, gender, securityLevel, salary, new DateTime(year, month, day));
+            //}
+            //foreach (var Emp in EmpArr)
+            //{
+            //    Console.WriteLine(Emp);
+            //}
             #endregion
         }
     }
